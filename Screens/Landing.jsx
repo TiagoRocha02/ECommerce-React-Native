@@ -21,10 +21,16 @@ export default function Landing({ navigation }) {
       <View style={styles.container2}>
         <Button
           style={styles.btn}
-          icon="login-variant"
+          icon="cart"
           mode="outlined"
           onPress={() => navigation.navigate("Appstack")}>
-          Start Shopping
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+            }}>
+            Start Shopping
+          </Text>
         </Button>
       </View>
     </View>
@@ -62,8 +68,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   btn: {
-    width: 240,
-    height: 45,
+    width: 350,
+    height: 55,
     alignContent: "flex-end",
     alignItems: "center",
     justifyContent: "center",

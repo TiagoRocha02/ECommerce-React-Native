@@ -1,36 +1,61 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { SafeAreaView, View, StyleSheet, Image } from "react-native";
-import { Button, Card, Text, TextInput } from "react-native-paper";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Image,
+  FlatList,
+  ScrollView,
+} from "react-native";
+import { Button, Card, Text, Searchbar } from "react-native-paper";
 
 export default function Cars() {
-  const [text, setText] = useState("");
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+  const [data, setdata] = useState([]);
+  const [List, setList] = useState([]);
+
+  useEffect(() => {
+    axios("https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json")
+      .then((res) => {
+        setList(res.data.Results);
+        setdata(res.data.Results)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleSearch = (query) => {
+    const filteredData = List.filter((item) => item.Make_Name.toLowerCase().includes(query.toLowerCase()));
+    setdata(filteredData);
+  };
+
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.container1}>
-        <TextInput style={{}} label="Search" value={text} onChangeText={(text) => setText(text)} />
-        <Button style={styles.btn} icon="magnify" mode="elevated"></Button>
+        <Searchbar
+          style={{ width: "90%", textAlign: "center" }}
+          mode="bar"
+          placeholder="Search"
+          onChangeText={handleSearch}
+        />
       </View>
       <View style={styles.container2}>
-        <Card style={styles.card}>
-          <View style={styles.CardContainer}>
-            <Image
-              style={{
-                marginHorizontal: 5,
-                width: "60%",
-                height: "100%",
-                borderRadius: 15,
-              }}
-              source={{
-                uri: "https://shorturl.at/btBC2",
-              }}
-            />
-            <Text style={{ color: "white" }}>SUPRAAAA?</Text>
-          </View>
-        </Card>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <Card style={styles.card}>
+              <View style={styles.subcontainer}>
+               
+                <Text style={{ color: "white", fontSize: 11,fontWeight:"bold" }}>{item.Make_Name}</Text>
+              </View>
+            </Card>
+          )}
+          keyExtractor={(item) => item.Make_ID}></FlatList>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -41,7 +66,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    paddingTop: 15,
   },
   container1: {
     flex: 1,
@@ -49,31 +73,31 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     backgroundColor: "#222",
     justifyContent: "center",
-    width: "100%",
+    marginTop: 10,
   },
-
   container2: {
-    flex: 5,
+    flex: 8,
+    backgroundColor: "#222",
+    alignItems: "center",
+  },
+  subcontainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    backgroundColor: "#222",
-    width: "96%",
+    height: "100%",
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 15,
   },
   card: {
     flex: 1,
-    width: "90%",
-    height: 140,
     padding: 10,
     justifyContent: "center",
-    backgroundColor: "#333",
+    backgroundColor: "#222",
     borderWidth: 1,
+    marginVertical: 5,
+    width: 360,
+    height: 50,
     borderColor: "#6c358b",
-  },
-  CardContainer: {
-    alignItems: "center",
-    alignContent: "center",
-    height: "100%",
-    flexDirection: "row",
-    flexWrap: "wrap",
   },
 });
