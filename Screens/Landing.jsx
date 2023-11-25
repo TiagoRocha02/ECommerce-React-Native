@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
 
 export default function Landing({ navigation }) {
@@ -19,19 +19,17 @@ export default function Landing({ navigation }) {
         </View>
       </View>
       <View style={styles.container2}>
-        <Button
-          style={styles.btn}
-          icon="cart"
-          mode="outlined"
-          onPress={() => navigation.navigate("Appstack")}>
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: "bold",
-            }}>
-            Start Shopping
-          </Text>
-        </Button>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Appstack")}>
+          <Button style={styles.btn} icon="cart" mode="outlined">
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "bold",
+              }}>
+              Start Shopping
+            </Text>
+          </Button>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -1,36 +1,29 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Image,
-  FlatList,
-  ScrollView,
-} from "react-native";
-import { Button, Card, Text, Searchbar } from "react-native-paper";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { Card, Text, Searchbar, ActivityIndicator } from "react-native-paper";
 
-export default function Cars() {
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const onChangeSearch = (query) => setSearchQuery(query);
+export default function Cars({ navigation }) {
   const [data, setdata] = useState([]);
   const [List, setList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios("https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json")
       .then((res) => {
+        setIsLoading(false);
         setList(res.data.Results);
-        setdata(res.data.Results)
+        setdata(res.data.Results);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const handleSearch = (query) => {
-    const filteredData = List.filter((item) => item.Make_Name.toLowerCase().includes(query.toLowerCase()));
+    const filteredData = List.filter((item) =>
+      item.Make_Name.toLowerCase().includes(query.toLowerCase())
+    );
     setdata(filteredData);
   };
-
 
   return (
     <View style={styles.container}>
@@ -43,17 +36,25 @@ export default function Cars() {
         />
       </View>
       <View style={styles.container2}>
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <Card style={styles.card}>
-              <View style={styles.subcontainer}>
-               
-                <Text style={{ color: "white", fontSize: 11,fontWeight:"bold" }}>{item.Make_Name}</Text>
-              </View>
-            </Card>
-          )}
-          keyExtractor={(item) => item.Make_ID}></FlatList>
+        {isLoading ? (
+          <ActivityIndicator style={{ alignItems: "center" }} size="large" />
+        ) : (
+          <FlatList
+            data={data}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => navigation.push("MakeDetails", { makeid: item.Make_ID })}>
+                <Card style={styles.card}>
+                  <View style={styles.subcontainer}>
+                    <Text style={{ color: "white", fontSize: 11, fontWeight: "bold" }}>
+                      {item.Make_Name}
+                    </Text>
+                  </View>
+                </Card>
+              </TouchableOpacity>
+            )}
+            keyExtractor={(item) => item.Make_ID}></FlatList>
+        )}
       </View>
     </View>
   );
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
     flex: 8,
     backgroundColor: "#222",
     alignItems: "center",
+    overflow:"visible",
   },
   subcontainer: {
     flexDirection: "row",

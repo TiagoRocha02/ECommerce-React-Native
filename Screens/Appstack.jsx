@@ -3,9 +3,9 @@ import { View, Text, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
 import { Icon } from "react-native-paper";
-import Cars from "./Cars";
 import Books from "./Books";
 import Games from "./Games";
+import Carstack from "./Carstack";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,14 +27,14 @@ export default function Appstack() {
           />
         ),
         tabBarIcon: ({ focused, size }) => {
-          if (route.name === "Cars") {
+          if (route.name === "Carstack") {
             return (
               <Icon source={focused ? "car" : "car-outline"} size={34} color="#6c358b" />
             );
           } else if (route.name === "Home") {
             return (
               <Icon
-                source={focused ? "home" : "home-outline"}
+                source={focused ? "home-variant" : "home-variant-outline"}
                 size={34}
                 color="#6c358b"
               />
@@ -43,7 +43,7 @@ export default function Appstack() {
             return (
               <Icon
                 source={
-                  focused ? "book-open-page-variant" : "book-open-page-variant-outline"
+                  focused ? "book" : "book-outline"
                 }
                 size={34}
                 color="#6c358b"
@@ -61,7 +61,7 @@ export default function Appstack() {
         },
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Cars" component={Cars} />
+      <Tab.Screen name="Carstack" component={Carstack} />
       <Tab.Screen name="Books" component={Books} />
       <Tab.Screen name="Games" component={Games} />
     </Tab.Navigator>
