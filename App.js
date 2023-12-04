@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Appstack from "./Screens/Appstack";
-import Landing from "./Screens/Landing";
+import Authstack from "./Screens/Authstack";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,7 @@ export default function App() {
       <Stack.Navigator
       screenOptions={{headerShown:false}}
       >
-        <Stack.Screen name="Landing" component={Landing}/>
+        <Stack.Screen name="Authstack" component={Authstack}/>
         <Stack.Screen name="Appstack" component={Appstack}/>
       </Stack.Navigator>
     </NavigationContainer>

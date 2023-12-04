@@ -21,10 +21,14 @@ export default function Appstack() {
         },
         headerShadowVisible: false,
         headerTitle: () => (
-          <Image
-            style={{ width: 70, height: 40, marginLeft: 140 }}
-            source={require("../assets/logo.png")}
-          />
+          <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap", marginTop: 8 }}>
+            <Icon source="account-circle" color="#6c358b" size={42} />
+            <Image
+              style={{ width: 70, height: 40, marginLeft: 105, marginRight: 105 }}
+              source={require("../assets/logo.png")}
+            />
+            <Icon source="cart-variant" color="#6c358b" size={38} />
+          </View>
         ),
         tabBarIcon: ({ focused, size }) => {
           if (route.name === "Carstack") {
@@ -42,9 +46,7 @@ export default function Appstack() {
           } else if (route.name === "Books") {
             return (
               <Icon
-                source={
-                  focused ? "book" : "book-outline"
-                }
+                source={focused ? "book" : "book-outline"}
                 size={34}
                 color="#6c358b"
               />
