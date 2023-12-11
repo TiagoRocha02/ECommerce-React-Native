@@ -37,7 +37,7 @@ export default function Cars({ navigation }) {
       </View>
       <View style={styles.container2}>
         {isLoading ? (
-          <ActivityIndicator style={{ alignItems: "center" }} size="large" />
+          <ActivityIndicator style={{ alignItems: "center", marginTop:24 }} size="large" />
         ) : (
           <FlatList
             data={data}

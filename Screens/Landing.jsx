@@ -19,7 +19,7 @@ export default function Landing({ navigation }) {
         </View>
       </View>
       <View style={styles.container2}>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Appstack")}>
           <Button style={styles.btn} icon="cart" mode="outlined">
             <Text
               style={{
