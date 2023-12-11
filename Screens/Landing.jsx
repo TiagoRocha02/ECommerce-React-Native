@@ -8,7 +8,7 @@ export default function Landing({ navigation }) {
       <View style={styles.container1}>
         <View style={styles.subcontainer1}>
           <Image
-            style={{ width: 280, height: 150 }}
+            style={{ width: 560, height: 300 }}
             source={require("../assets/logo.png")}
           />
         </View>

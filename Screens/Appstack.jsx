@@ -24,10 +24,10 @@ export default function Appstack() {
           <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap", marginTop: 8 }}>
             <Icon source="account-circle" color="#6c358b" size={42} />
             <Image
-              style={{ width: 70, height: 40, marginLeft: 105, marginRight: 105 }}
+              style={{ width: 130, height: 50, marginLeft: 70, marginRight: 70 }}
               source={require("../assets/logo.png")}
             />
-            <Icon source="cart-variant" color="#6c358b" size={38} />
+            <Icon source="cart-variant" color="#6c358b" size={42} />
           </View>
         ),
         tabBarIcon: ({ focused, size }) => {

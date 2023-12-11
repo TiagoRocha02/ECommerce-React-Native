@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        style={{ width: 120, height: 60, marginBottom: 20 }}
+        style={{ width: 480, height: 240, marginBottom: 15 }}
         source={require("../assets/logo.png")}
       />
       {errorMsg ? <Text style={styles.errormsg}>{errorMsg}</Text> : null}
