@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, navigation } from 'react-native';
+import { View, Text } from 'react-native';
 
 const BooksDetails = ({ route }) => {
   const { book } = route.params;

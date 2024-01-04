@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
 import { Icon } from "react-native-paper";
-import Books from "./Books";
+import BooksStack from "./BookStack";
 import Games from "./Games";
 import Carstack from "./Carstack";
 import Profile from "./Profile";
@@ -43,7 +43,7 @@ export default function Appstack({ navigation }) {
               return <Icon source={focused ? "car" : "car-outline"} size={34} color="#6c358b" />;
             } else if (route.name === "Home") {
               return <Icon source={focused ? "home-variant" : "home-variant-outline"} size={34} color="#6c358b" />;
-            } else if (route.name === "Books") {
+            } else if (route.name === "BooksStack") {
               return <Icon source={focused ? "book" : "book-outline"} size={34} color="#6c358b" />;
             } else if (route.name === "Games") {
               return <Icon source={focused ? "gamepad-variant" : "gamepad-variant-outline"} size={34} color="#6c358b" />;
@@ -52,7 +52,7 @@ export default function Appstack({ navigation }) {
         })}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Carstack" component={Carstack} />
-        <Tab.Screen name="Books" component={Books} />
+        <Tab.Screen name="BooksStack" component={BooksStack} />
         <Tab.Screen name="Games" component={Games} />
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Profile" component={Profile} />
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Cart" component={Cart} />

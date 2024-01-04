@@ -3,8 +3,7 @@ import { View, Text, TextInput, Button, FlatList, TouchableOpacity, StyleSheet, 
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
-const Books = () => {
-  const navigation = useNavigation();
+const Books = ({navigation}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState([]);
 
@@ -12,7 +11,7 @@ const Books = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=react%20native&maxResults=10&key=AIzaSyAvs73j_zPvkIYp_GHx_lIiGsyzuFvkekc`
+               `https://www.googleapis.com/books/v1/volumes?q=react%20native&maxResults=10&key=AIzaSyAvs73j_zPvkIYp_GHx_lIiGsyzuFvkekc`
         );
 
         setBooks(response.data.items || []);
