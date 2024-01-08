@@ -26,11 +26,11 @@ export default function Appstack({ navigation }) {
         headerTitle: () => (
           <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
             <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-              <Icon source="account-circle" color="#6c358b" size={42} />
+              <Icon source="account-circle" color="#6c358b" size={41} />
             </TouchableOpacity>
-            <Image style={{ width: 130, height: 50, marginLeft: 85, marginRight: 80 }} source={require("../assets/logo.png")} />
+            <Image style={{ width: 130, height: 50, marginLeft: 70, marginRight: 70 }} source={require("../assets/logo.png")} />
             <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-              <Icon source="cart-variant" color="#6c358b" size={42} />
+              <Icon source="cart-variant" color="#6c358b" size={41} />
             </TouchableOpacity>
           </View>
         ),
