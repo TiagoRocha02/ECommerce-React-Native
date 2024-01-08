@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 const BooksStack = () => {
   return (
       <Stack.Navigator initialRouteName="Books">
-        <Stack.Screen name="Books" component={Books} />
+        <Stack.Screen 
+        options={{
+          headerShown: false,
+        }}
+        name="Books" component={Books} />
         <Stack.Screen name="BooksDetails" component={BooksDetails} />
       </Stack.Navigator>
   );

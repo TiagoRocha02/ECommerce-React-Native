@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, FlatList, TouchableOpacity, StyleSheet, navigation } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { SearchBar } from 'react-native-screens';
 
 const Books = ({navigation}) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -44,9 +45,10 @@ const Books = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.container1}>
-        <TextInput
+        <SearchBar
           style={{ width: "90%", textAlign: "center" }}
           placeholder="Explore o seu livro"
+          mode="bar"
           value={searchTerm}
           onChangeText={(text) => setSearchTerm(text)}
         />
