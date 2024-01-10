@@ -6,6 +6,14 @@ export const CartContext = createContext("dssds");
 
 export default function ItemsContext({ children }) {
   const [items, setItems] = useState([]);
+  const [ThemeColors,setThemecolors] = useState({})
+
+/*   setThemecolors({
+    color1:"#222",
+    color2:"#00C9A7",
+    color3:"#white"
+  }) */
+
   function addItem(item){
     setItems((items) => [...items, item]);
   }
@@ -16,11 +24,12 @@ export default function ItemsContext({ children }) {
   );
   
   }
-  
+
   const ItemActions = {
     items:items,
     addItem:addItem,
-    removeItem:removeItem
+    removeItem:removeItem,
+    ThemeColors:ThemeColors
   }
   return <CartContext.Provider value={ItemActions}>{children}</CartContext.Provider>;
 }
