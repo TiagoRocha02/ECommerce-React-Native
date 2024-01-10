@@ -9,6 +9,7 @@ import Carstack from "./Carstack";
 import Profile from "./Profile";
 import Cart from "./Cart";
 import { CartContext } from "../context/items-context";
+import GamesStack from "./GamesStack";
 
 
 
@@ -49,7 +50,7 @@ export default function Appstack({ navigation }) {
               return <Icon source={focused ? "home-variant" : "home-variant-outline"} size={34} color="#6c358b" />;
             } else if (route.name === "BooksStack") {
               return <Icon source={focused ? "book" : "book-outline"} size={34} color="#6c358b" />;
-            } else if (route.name === "Games") {
+            } else if (route.name === "GamesStack") {
               return <Icon source={focused ? "gamepad-variant" : "gamepad-variant-outline"} size={34} color="#6c358b" />;
             }
           },
@@ -57,7 +58,7 @@ export default function Appstack({ navigation }) {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Carstack" component={Carstack} />
         <Tab.Screen name="BooksStack" component={BooksStack} />
-        <Tab.Screen name="Games" component={Games} />
+        <Tab.Screen name="GamesStack" component={GamesStack}/>
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Profile" component={Profile} />
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Cart" component={Cart} />
       </Tab.Navigator>

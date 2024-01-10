@@ -5,17 +5,6 @@ import MakeDetails from "./MakeDetails";
 
 const Stack = createNativeStackNavigator();
 
-const config = {
-  animation: "spring",
-  config: {
-    stiffness: 1000,
-    damping: 2500,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold: 0.01,
-  },
-};
 
 export default function Carstack() {
   return (
@@ -23,10 +12,7 @@ export default function Carstack() {
       <Stack.Screen
         options={{
           headerShown: false,
-          transitionSpec: {
-            open: config,
-            close: config,
-          },
+         
         }}
         name="Cars"
         component={Cars}
@@ -38,10 +24,6 @@ export default function Carstack() {
           headerShown: true,
           headerStyle: { backgroundColor: "#222" },
           headerTintColor: "white",
-          transitionSpec: {
-            open: config,
-            close: config,
-          },
         }}
         name="MakeDetails"
         component={MakeDetails}
