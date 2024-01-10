@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { ActivityIndicator } from "react-native-paper";
 
 export default function Games() {
   const [data, setdata] = useState([]);
@@ -35,7 +36,10 @@ export default function Games() {
             keyExtractor={(item) => item.appid.toString()}
           />
         ) : (
-          <Text>Loading...</Text>
+          <ActivityIndicator
+          style={{ alignItems: "center", marginTop: 24 }}
+          size="large"
+        />
         )}
       </View>
     </View>
