@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Games from "./Games";
-import GameDetails from "./GameDetails";
+import GameDetails from "./GamesDetails";
 
 const Stack = createNativeStackNavigator();
 
