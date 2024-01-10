@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { View, StyleSheet, FlatList, TouchableOpacity} from "react-native";
 import { Card, Text, Searchbar, ActivityIndicator } from "react-native-paper";
 
 export default function Cars({ navigation }) {
@@ -37,21 +37,24 @@ export default function Cars({ navigation }) {
       </View>
       <View style={styles.container2}>
         {isLoading ? (
-          <ActivityIndicator style={{ alignItems: "center", marginTop:24 }} size="large" />
+          <ActivityIndicator
+            style={{ alignItems: "center", marginTop: 24 }}
+            size="large"
+          />
         ) : (
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.push("MakeDetails", { makeid: item.Make_ID })}>
-                <Card style={styles.card}>
-                  <View style={styles.subcontainer}>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push("MakeDetails", { makeid: item.Make_ID })
+                  }>
+                  <Card style={styles.card}>
                     <Text style={{ color: "white", fontSize: 11, fontWeight: "bold" }}>
                       {item.Make_Name}
                     </Text>
-                  </View>
-                </Card>
-              </TouchableOpacity>
+                  </Card>
+                </TouchableOpacity>
             )}
             keyExtractor={(item) => item.Make_ID}></FlatList>
         )}
@@ -80,21 +83,19 @@ const styles = StyleSheet.create({
     flex: 8,
     backgroundColor: "#222",
     alignItems: "center",
-    overflow:"visible",
+    overflow: "visible",
   },
   subcontainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    height: "100%",
-    alignContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 15,
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center"
   },
   card: {
     flex: 1,
     padding: 10,
     justifyContent: "center",
+    alignItems:"center",
+    alignContent:"center",
     backgroundColor: "#222",
     borderWidth: 1,
     marginVertical: 5,

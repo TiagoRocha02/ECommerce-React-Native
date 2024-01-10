@@ -9,6 +9,10 @@ import Carstack from "./Carstack";
 import Profile from "./Profile";
 import Cart from "./Cart";
 import { CartContext } from "../context/items-context";
+<<<<<<< HEAD
+=======
+import GamesStack from "./GamesStack";
+>>>>>>> e66bf790ddaeb712922fbaf8e77ae1ba0fe0732a
 
 const Tab = createBottomTabNavigator();
 
@@ -38,26 +42,25 @@ export default function Appstack({ navigation }) {
               </TouchableOpacity>
               <Text style={{ fontSize: 26, color: "#6c358b" }}>{ItemActions.items.length}</Text>
             </View>
-          </View>
-        ),
-        tabBarIcon: ({ focused, size }) => {
-          if (route.name === "Carstack") {
-            return <Icon source={focused ? "car" : "car-outline"} size={34} color="#6c358b" />;
-          } else if (route.name === "Home") {
-            return <Icon source={focused ? "home-variant" : "home-variant-outline"} size={34} color="#6c358b" />;
-          } else if (route.name === "BooksStack") {
-            return <Icon source={focused ? "book" : "book-outline"} size={34} color="#6c358b" />;
-          } else if (route.name === "Games") {
-            return <Icon source={focused ? "gamepad-variant" : "gamepad-variant-outline"} size={34} color="#6c358b" />;
-          }
-        },
-      })}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Carstack" component={Carstack} />
-      <Tab.Screen name="BooksStack" component={BooksStack} />
-      <Tab.Screen name="Games" component={Games} />
-      <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Profile" component={Profile} />
-      <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Cart" component={Cart} />
-    </Tab.Navigator>
+          ),
+          tabBarIcon: ({ focused, size }) => {
+            if (route.name === "Carstack") {
+              return <Icon source={focused ? "car" : "car-outline"} size={34} color="#6c358b" />;
+            } else if (route.name === "Home") {
+              return <Icon source={focused ? "home-variant" : "home-variant-outline"} size={34} color="#6c358b" />;
+            } else if (route.name === "BooksStack") {
+              return <Icon source={focused ? "book" : "book-outline"} size={34} color="#6c358b" />;
+            } else if (route.name === "GamesStack") {
+              return <Icon source={focused ? "gamepad-variant" : "gamepad-variant-outline"} size={34} color="#6c358b" />;
+            }
+          },
+        })}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Carstack" component={Carstack} />
+        <Tab.Screen name="BooksStack" component={BooksStack} />
+        <Tab.Screen name="GamesStack" component={GamesStack}/>
+        <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Profile" component={Profile} />
+        <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Cart" component={Cart} />
+      </Tab.Navigator>
   );
 }

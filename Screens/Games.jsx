@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function Games() {
   const [data, setdata] = useState();
+  const navigation = useNavigation()
+  
   useEffect(() => {
     axios.get("https://www.cheapshark.com/api/1.0/deals?storeID=1&steamRating=1").then((res) => {
       setdata(res.data);
@@ -16,13 +19,17 @@ export default function Games() {
       <View style={styles.container1}>
         <FlatList
           data={data}
-          renderItem={({item}) => 
+          renderItem={({item}) =>
+          <TouchableOpacity
+          onPress={() => navigation.push("GameDetails",{})}>
           <View style={styles.card2}>
             <Image style={{width:40,height:40}} source={{uri: JSON.stringify(item.thumb)}}></Image>
             <Text style={styles.textStyle}>{item.title}</Text>
-            </View>}
+            </View>
+            </TouchableOpacity>
+           }
           keyExtractor={(item) => Math.random() * 100 + item.gameID}
-        />
+          ></FlatList>
       </View>
     </View>
   );
