@@ -17,7 +17,6 @@ export default function MakeDetails({ route }) {
   }, []);
 
   const ItemActions = useContext(CartContext);
-
   return (
     <View style={styles.container}>
       <View style={styles.container1}>
@@ -28,7 +27,7 @@ export default function MakeDetails({ route }) {
               <View style={styles.subcontainer}>
                 <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>{item.Model_Name.toUpperCase()}</Text>
                 <Text style={{ color: "white", fontSize: 14, fontWeight: "500" }}>Type: {item.VehicleTypeName}</Text>
-                <TouchableOpacity onPress={() => ItemActions.addItem({ model: item.Model_Name, type: item.VehicleTypeName })}>
+                <TouchableOpacity onPress={() => ItemActions.addItem({ make:item.Make_Name,model: item.Model_Name, type: item.VehicleTypeName })}>
                   <Button style={styles.btn} icon="cart" mode="outlined">
                     <Text
                       style={{
