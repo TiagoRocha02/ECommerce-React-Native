@@ -16,12 +16,11 @@ export default function ItemsContext({ children }) {
   );
   
   }
-
+  
   const ItemActions = {
     items:items,
     addItem:addItem,
     removeItem:removeItem
   }
-
   return <CartContext.Provider value={ItemActions}>{children}</CartContext.Provider>;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, FlatList, Pressable } from "react-native";
-import { Button, Card, Text, TouchableOpacity } from "react-native-paper";
+import { View, StyleSheet, FlatList ,TouchableOpacity} from "react-native";
+import { Button, Card, Text,  } from "react-native-paper";
 import axios from "axios";
 import { useContext } from "react";
 import { CartContext } from "../context/items-context";
@@ -26,19 +26,20 @@ export default function MakeDetails({ route }) {
           renderItem={({ item }) => (
             <Card style={styles.card}>
               <View style={styles.subcontainer}>
-                <Text style={{ color: "white", fontSize: 11, fontWeight: "bold" }}>{item.Model_Name.toUpperCase()}</Text>
-                <Text style={{ color: "white", fontSize: 10, fontWeight: "500" }}>Type: {item.VehicleTypeName}</Text>
-                <Pressable onPress={() => ItemActions.addItem({ model: item.Model_Name, type: item.VehicleTypeName })}>
+                <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>{item.Model_Name.toUpperCase()}</Text>
+                <Text style={{ color: "white", fontSize: 14, fontWeight: "500" }}>Type: {item.VehicleTypeName}</Text>
+                <TouchableOpacity onPress={() => ItemActions.addItem({ model: item.Model_Name, type: item.VehicleTypeName })}>
                   <Button style={styles.btn} icon="cart" mode="outlined">
                     <Text
                       style={{
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: "bold",
+                        color:"white"
                       }}>
-                      Start Shopping
+                      Buy
                     </Text>
                   </Button>
-                </Pressable>
+                </TouchableOpacity>
               </View>
             </Card>
           )}
@@ -52,6 +53,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#222",
+  },
+  btn:{
+    height:42,
+    marginTop:15
   },
   container1: {
     flex: 1,
@@ -68,14 +73,14 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    padding: 10,
     justifyContent: "center",
     backgroundColor: "#222",
     borderWidth: 1,
     borderRadius: 0,
-    marginVertical: 2,
+    marginVertical: 5,
     width: 380,
-    height: 55,
+    height:120,
     borderColor: "#ddd",
+    borderRadius:10
   },
 });

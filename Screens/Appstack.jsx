@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo ,useContext} from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
@@ -8,15 +8,17 @@ import Games from "./Games";
 import Carstack from "./Carstack";
 import Profile from "./Profile";
 import Cart from "./Cart";
-import ItemsContext from "../context/items-context";
+import { CartContext } from "../context/items-context";
+
+
 
 const Tab = createBottomTabNavigator();
 
 export default function Appstack({ navigation }) {
-  
+
+  const ItemActions = useContext(CartContext);
 
   return (
-    <ItemsContext>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarStyle: { backgroundColor: "#222", height: 55, padding: 5 },
@@ -32,10 +34,12 @@ export default function Appstack({ navigation }) {
               <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
                 <Icon source="account-circle" color="#6c358b" size={42} />
               </TouchableOpacity>
-              <Image style={{ width: 130, height: 50, marginLeft: 85, marginRight: 80 }} source={require("../assets/logo.png")} />
-              <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-                <Icon source="cart-variant" color="#6c358b" size={42} />
+              <Image style={{ width: 130, height: 50, marginLeft: 85, marginRight: 60 }} source={require("../assets/logo.png")} />
+              
+              <TouchableOpacity onPress={() => navigation.navigate("Cart")}>                
+                <Icon source="cart-variant" color="#6c358b" size={38} />
               </TouchableOpacity>
+              <Text style={{fontSize:26,color:"#6c358b"}}>{ItemActions.items.length}</Text>
             </View>
           ),
           tabBarIcon: ({ focused, size }) => {
@@ -57,6 +61,5 @@ export default function Appstack({ navigation }) {
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Profile" component={Profile} />
         <Tab.Screen options={{ tabBarItemStyle: { display: "none" } }} name="Cart" component={Cart} />
       </Tab.Navigator>
-    </ItemsContext>
   );
 }
