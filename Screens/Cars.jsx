@@ -29,7 +29,7 @@ export default function Cars({ navigation }) {
     <View style={styles.container}>
       <View style={styles.container1}>
         <Searchbar
-          style={{ width: "90%", textAlign: "center" }}
+          style={{ width: "90%", textAlign: "center",backgroundColor:"white" }}
           mode="bar"
           placeholder="Search"
           onChangeText={handleSearch}
@@ -96,11 +96,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems:"center",
     alignContent:"center",
-    backgroundColor: "#222",
+    backgroundColor: "#00C9A7",
     borderWidth: 1,
     marginVertical: 5,
     width: 360,
     height: 50,
-    borderColor: "#6c358b",
   },
 });
