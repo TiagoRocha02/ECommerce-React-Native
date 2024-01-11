@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.11",
+<<<<<<< HEAD
+=======
+    "@react-navigation/native": "^6.1.9",
+>>>>>>> 3562b19c792d781794290b629527681e7450a4e5
     "@react-navigation/native-stack": "^6.9.17",
     "axios": "^1.6.2",
     "expo": "~49.0.15",
@@ -17,7 +21,13 @@
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-gesture-handler": "~2.12.0",
+<<<<<<< HEAD
     "react-native-paper": "^5.11.1"
+=======
+    "react-native-paper": "^5.11.1",
+    "react-native-screens": "~3.22.0",
+    "react-native-safe-area-context": "4.6.3"
+>>>>>>> 3562b19c792d781794290b629527681e7450a4e5
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

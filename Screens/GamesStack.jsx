@@ -1,11 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Cars from "./Cars";
-import MakeDetails from "./MakeDetails";
+import Games from "./Games";
+import GameDetails from "./GamesDetails";
 
 const Stack = createNativeStackNavigator();
 
-<<<<<<< HEAD
 const config = {
   animation: "spring",
   config: {
@@ -17,26 +16,20 @@ const config = {
     restSpeedThreshold: 0.01,
   },
 };
-=======
->>>>>>> 3562b19c792d781794290b629527681e7450a4e5
 
-export default function Carstack() {
+export default function GamesStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         options={{
           headerShown: false,
-<<<<<<< HEAD
           transitionSpec: {
             open: config,
             close: config,
           },
-=======
-         
->>>>>>> 3562b19c792d781794290b629527681e7450a4e5
         }}
-        name="Cars"
-        component={Cars}
+        name="Games"
+        component={Games}
       />
       <Stack.Screen
         options={{
@@ -45,16 +38,13 @@ export default function Carstack() {
           headerShown: true,
           headerStyle: { backgroundColor: "#222" },
           headerTintColor: "white",
-<<<<<<< HEAD
           transitionSpec: {
             open: config,
             close: config,
           },
-=======
->>>>>>> 3562b19c792d781794290b629527681e7450a4e5
         }}
-        name="MakeDetails"
-        component={MakeDetails}
+        name="GameDetails"
+        component={GameDetails}
       />
     </Stack.Navigator>
   );
